@@ -1,0 +1,70 @@
+<% layout('layouts/boilersplate') %>
+
+    <div class="row">
+        <h1 class="text-center">New Campground</h1>
+        <div class="col-md-6 offset-md-3"><!--6 col after 3 col from left-->                 <!--multipart form data is for parsing folder type data-->
+            <form action="/campgrounds" method="post" novalidate class="validated-form" enctype="multipart/form-data"><!--novalidate and class in "validate-form is used to set bootstrap validator on form" and then useing"required" in input textarea andselect-->
+
+                <div class="mb-3"><!--margin bottom-->
+                    <label class="form-label" for="title">Title</label>
+                    <input class="form-control" type="text" name="campground[title]" id="title" required>
+                    <div class="valid-feedback">
+                        Nice Camp!
+                      </div>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label" for="location">Location</label>
+                    <input class="form-control" type="text" name="campground[location]" id="location" required>
+                    <div class="valid-feedback">
+                        Looks good!
+                      </div>
+                </div>
+
+                <!-- <div class="mb-3">
+                    <label class="form-label" for="image">Image Url</label>
+                    <input class="form-control" type="text" name="campground[image]" id="image" required>
+                    <div class="valid-feedback">
+                        Looks good!
+                      </div>
+                </div> -->
+<!--to take user input as file , mulltiple allow user to upload multiple file at a time-->                
+                <div class="input-group mb-3">
+                    <input class="form-control " type="file" name="image" id="image" multiple>
+                    <label class="input-group-text" for="image">Upload</label>
+                    <div class="valid-feedback">
+                        uploaded!
+                    </div>
+                </div>
+                
+                
+                <div class="mb-3">
+                    <label class='form-label' for="price">Campground Price</label>
+                    <div class="input-group mb-3 ">
+                    <span class="input-group-text" id="price-label">$</span>
+                    <input type="text" class="form-control" placeholder="0.0" id="price" aria-label="price-label"
+                        aria-describedby="price-label" name="campground[price]" required>
+                        <div class="valid-feedback">
+                            Looks good!
+                          </div>
+                    </div>
+
+                </div>
+                
+                <div class="mb-3">
+                    <label class="form-label" for="description">Description</label>
+                    <textarea class="form-control" name="campground[description]" id="description" required></textarea>
+                    <div class="valid-feedback">
+                        Looks good!
+                      </div>
+                </div>
+
+                <div class="mb-3">
+                    <button class="btn btn-success">Add Campgrounds</button>
+                </div>
+
+            </form>
+
+            <a href="/campgrounds">All Campgrounds</a>
+        </div>
+    </div>
